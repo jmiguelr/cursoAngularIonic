@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h2 [ngStyle]="getColor2()">Welcome to Ionic!</h2>
+
+  <div [style.color]="getColorHdr()">
+
+    {{talk.speaker}} {{talk.name}}
+  </div>
+
+  <p>
+    This starter project comes with simple tabs-based layout for apps that are going to primarily use a Tabbed UI.
+  </p>
+  <p>
+    Take a look at the <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.
+  </p>
+
+  <button (click)="procesaClick()">Dale!</button>
+  <input #unalias (keyup)="searchalias( unalias.value)">
+
+  <div *ngFor="let charla of talks">
+    Soy <b>{{charla.speaker}}</b> hablando de {{charla.name}}
+  </div>
+
+
+  <hr>
+  <h1> Ahora con Componente</h1>
+  
+
+  <talk-row *ngFor="let talk of talks" [charla]="talk" (charlaPulsada)="hijoClicked($event)"></talk-row>
+
+  <hr>
+  <input [(ngModel)]="unaVariableBindeada">
+  <hr>
+
+  -- {{unaVariableBindeada}} --
+
+
+  <form #myForm="ngForm" (submit)="onSubmit(myForm.value)">
+  <input type="text" name ="campo1" ngModel required>
+  <input type="text" name ="campo2" ngModel minlength="3">
+  <input type="text" name ="campo3" ngModel maxlength="10">
+  <button type="submit" [disabled]="myForm.form.invalid">Enviar</button>
+  
+  </form>
+
+  
+
+  {{myForm.form.errors}}
+
+</ion-content>
