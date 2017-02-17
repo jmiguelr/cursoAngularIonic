@@ -12,14 +12,24 @@ export class TalkService {
     console.log('Hello TalkService Provider');
   }
 
-  retrieveAllTalks()  {
+  retrieveAllTalks() {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     //    this.http.get('http://data.agenda.wedeploy.io/talks')
     //    .subscribe(response => this.talks = response.json())
-    return this.http.get( this.endpoint, options)
+    return this.http.get(this.endpoint, options)
       .do(x => console.log(x))
       .map(res => res.json());
+
+  }
+
+  sendTalk(name: string, speaker: string) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.endpoint,
+      {
+        'name':name, 'speaker': speaker
+      })
 
   }
 
