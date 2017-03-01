@@ -78,6 +78,20 @@ export class HomePage {
   }
 
 
+  getSearchItems($event) {
+    console.log("Queremos buscar por " + JSON.stringify($event))
+
+  }
+
+  changeItem1($event) {
+    console.log("Cambia el item1 ")
+  }
+
+  changeItem2($event) {
+    console.log("Cambia el item2 ")
+  }
+
+
   addTalk(myForm) {
     console.log("MyForm es :" + myForm)
     console.log("name :" + myForm.name)
@@ -86,7 +100,7 @@ export class HomePage {
 
   jmiguelClick() {
     console.log("saltando a jmiguel")
-    this.navCtrl.push(JmiguelPage,{'param1':'jmiguel','param2':'bitcoiner'})
+    this.navCtrl.push(JmiguelPage, { 'param1': 'jmiguel', 'param2': 'bitcoiner' })
   }
 
   theForm;
@@ -100,9 +114,9 @@ export class HomePage {
 
 
     this.nameControl = new FormControl('jmiguel', Validators.required)
-    this.nameControl.valueChanges.subscribe( x => console.log(x))
+    this.nameControl.valueChanges.subscribe(x => console.log(x))
     this.speakerControl = new FormControl('')
-    
+
 
     this.theForm = fb.group({
       name: this.nameControl,

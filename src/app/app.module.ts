@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { JmiguelPage } from './../pages/jmiguel/jmiguel';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -30,6 +31,6 @@ import { TalkRowComponent } from '../components/talk-row/talk-row';
     TabsPage,
     JmiguelPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
 })
 export class AppModule {}

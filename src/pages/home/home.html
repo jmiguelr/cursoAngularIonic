@@ -20,7 +20,63 @@
     Take a look at the <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.
   </p>
 
-  <div (click)="jmiguelClick()"><p>a jmiguel</p></div>
+
+
+<hr>
+<ion-item>
+  <ion-label> Item1</ion-label>
+  <ion-toggle (ionChange)="changeItem1($event)" checked="true" color="secondary" ></ion-toggle>
+</ion-item>
+<ion-item>
+  <ion-label> Item2</ion-label>
+  <ion-toggle (ionChange)="changeItem2($event)" color="primary" checked="false"></ion-toggle>
+</ion-item>
+
+
+<hr>
+
+  <ion-buttons end>
+    <button ion-button icon-only color="royal">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+  </ion-buttons>
+
+  <ion-item>
+    <ion-range [(ngModel)]="brightness">
+      <ion-icon range-left small name="sunny"></ion-icon>
+      <ion-icon range-right name="sunny"></ion-icon>
+    </ion-range>
+  </ion-item>
+
+{{brightness}}
+
+<hr>
+
+<hr>
+<ion-slides pager>
+
+  <ion-slide style="background-color: aqua">
+    <h2>Slide 1</h2>
+  </ion-slide>
+
+  <ion-slide style="background-color: dodgerblue">
+    <h2>Slide 2</h2>
+          <talk-row *ngFor="let talk of talks" [charla]="talk" (charlaPulsada)="hijoClicked($event)"></talk-row>
+
+  </ion-slide>
+
+  <ion-slide style="background-color:  gold">
+    <h2>Slide 3</h2>
+  </ion-slide>
+
+</ion-slides>
+
+<hr>
+
+
+  <div (click)="jmiguelClick()">
+    <p>a jmiguel</p>
+  </div>
 
   <button (click)="procesaClick()">Dale!</button>
   <input #unalias (keyup)="searchalias( unalias.value)">
